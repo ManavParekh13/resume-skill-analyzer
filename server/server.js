@@ -6,7 +6,13 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'https://resume-skill-analyzer-1ydt.vercel.app'
+  ]
+}));
+
 app.use(express.json());
 
 app.get('/', (req, res) => res.send('Resume Analyzer API running ✅'));
